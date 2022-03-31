@@ -14,7 +14,7 @@ namespace RPG.Combat
 
         private Health target;
         private float timeSinceLastAttack;
-        private bool isStopped;
+
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -24,6 +24,7 @@ namespace RPG.Combat
             if (!GetIsInRange())
             {
                 GetComponent<Mover>().MoveTo(target.transform.position);
+                StopAttack();
             }
             else
             {
@@ -32,7 +33,7 @@ namespace RPG.Combat
             }
         }
 
-        private void AttackBehaviour()
+        public void AttackBehaviour()
         {
             transform.LookAt(target.transform);
 
@@ -50,7 +51,7 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("attack");
         }
 
-        public bool CanAttack(CombatTarget combatTarget)
+        public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
             Health targetToTest = combatTarget.GetComponent<Health>();
@@ -68,7 +69,7 @@ namespace RPG.Combat
         {
             return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
         }
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
