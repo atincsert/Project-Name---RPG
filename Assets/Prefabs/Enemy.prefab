@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 4.66
       objectReference: {fileID: 0}
+    - target: {fileID: 1713810608869092730, guid: dad787c6156399c4bbdc26ed6c1ca004, type: 3}
+      propertyPath: weaponDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3084461837883410164, guid: dad787c6156399c4bbdc26ed6c1ca004, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -163,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86335d64f343f244c86c4773d43deba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 40
 --- !u!114 &1422586907584792070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
+  suspicionTime: 5
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  waypointDwellTime: 3
