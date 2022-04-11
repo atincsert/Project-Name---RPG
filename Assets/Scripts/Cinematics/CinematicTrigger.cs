@@ -16,7 +16,7 @@ namespace RPG.Combat
 
                 GetComponent<PlayableDirector>().Play();
 
-                isPlayed = true;
+                isPlayed = true;               
             }
         }
     }
