@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
-namespace RPG.Combat
+namespace RPG.Cinematics
 {
     public class CinematicTrigger : MonoBehaviour
     {
-        private bool isPlayed;
+        private bool alreadyTriggered = false;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (!alreadyTriggered && other.gameObject.CompareTag("Player"))
             {
-                if (isPlayed == true) return;
-
-                GetComponent<PlayableDirector>().Play();
-
-                isPlayed = true;               
+                alreadyTriggered = true;
+                GetComponent<PlayableDirector>().Play();                    
             }
         }
     }
