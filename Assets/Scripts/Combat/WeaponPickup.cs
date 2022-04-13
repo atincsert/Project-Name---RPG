@@ -7,12 +7,7 @@ namespace RPG.Combat
     public class WeaponPickup : MonoBehaviour
     {
         [SerializeField] Weapon weapon = null;
-
-
-        private void Awake()
-        {            
-            weapon = GetComponent<Weapon>();
-        }
+       
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
