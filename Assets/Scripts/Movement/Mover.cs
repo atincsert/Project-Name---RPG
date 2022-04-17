@@ -11,7 +11,7 @@ namespace RPG.Movement
     {
         [SerializeField] float maxSpeed = 5.66f;
 
-        private static readonly int forwardSpeedParameter = Animator.StringToHash("forwardSpeed");
+        private int forwardSpeedParameter = Animator.StringToHash("forwardSpeed");
         private NavMeshAgent navMeshAgent;
         private bool isFighting;
         private Health health;
