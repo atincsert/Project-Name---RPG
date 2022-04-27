@@ -1198,6 +1198,10 @@ PrefabInstance:
       propertyPath: weaponOverrideController
       value: 
       objectReference: {fileID: 22100000, guid: 4abdd1354979dc841ab5c5471893f3ba, type: 2}
+    - target: {fileID: 2843265073716230721, guid: dad787c6156399c4bbdc26ed6c1ca004, type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5554817341744848600, guid: dad787c6156399c4bbdc26ed6c1ca004, type: 3}
       propertyPath: m_Name
       value: Player
