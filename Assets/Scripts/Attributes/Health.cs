@@ -4,6 +4,7 @@ using UnityEngine;
 using RPG.Saving;
 using RPG.Stats;
 using RPG.Core;
+using System;
 
 namespace RPG.Attributes
 {
@@ -16,22 +17,25 @@ namespace RPG.Attributes
         
         private void Start()
         {
-            health = GetComponent<BaseStats>().GetHealth();    
+            health = GetComponent<BaseStats>().GetStat(Stat.Health);    
         }
 
         public bool IsDead()
         {
             return isDead;
         }
-        public void TakeDamage(float damage)
+        public void TakeDamage(GameObject instigator, float damage)
         {
             health = Mathf.Max(health - damage, 0);
             //Debug.Log(health);
-            if (health == 0)
+            if (health <= 0)
             {
                 Die();
+                AwardExperience(instigator);
             }
         }
+
+        
 
         public float GetHealthForDisplay()
         {
@@ -46,6 +50,14 @@ namespace RPG.Attributes
             animator.SetTrigger("die");
             isDead = true;
             GetComponent<ActionScheduler>().CancelCurrentAction();
+        }
+
+        private void AwardExperience(GameObject instigator)
+        {
+            Experience experience = instigator.GetComponent<Experience>();
+            if (experience == null) return;
+
+            experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
         }
 
         public object CaptureState()

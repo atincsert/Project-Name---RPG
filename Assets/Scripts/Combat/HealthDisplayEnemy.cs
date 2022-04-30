@@ -22,6 +22,7 @@ namespace RPG.Combat
             if (fighter.GetTargetHealthForDisplay() == null)
             {
                 GetComponent<Text>().text = "N/A";
+                return;
             }
             Health health = fighter.GetTargetHealthForDisplay();
             GetComponent<Text>().text = health.GetHealthForDisplay().ToString();
