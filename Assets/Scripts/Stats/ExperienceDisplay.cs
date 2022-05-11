@@ -9,16 +9,18 @@ namespace RPG.Stats
 {
     public class ExperienceDisplay : MonoBehaviour
     {
-        Experience experience;
+        private Experience experience;
+        private Text text;
 
         private void Awake()
         {
             experience = GameObject.FindWithTag("Player").GetComponent<Experience>();
+            text = GetComponent<Text>();
         }
 
         private void Update()
         {
-            GetComponent<Text>().text = experience.GetExperiencePointsForDisplay().ToString();
+           text.text = experience.GetExperiencePointsForDisplay().ToString();
         }
     }
 }
