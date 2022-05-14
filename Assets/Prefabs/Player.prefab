@@ -1218,6 +1218,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7627736657029520005, guid: dad787c6156399c4bbdc26ed6c1ca004, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7963214103869883044, guid: dad787c6156399c4bbdc26ed6c1ca004, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1292,19 +1296,6 @@ CapsuleCollider:
   m_Height: 1.85
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1989966940861365319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3675963674862637328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86335d64f343f244c86c4773d43deba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regenerationPercentage: 70
 --- !u!114 &5751211174172212741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1324,8 @@ MonoBehaviour:
   - type: 3
     texture: {fileID: 2800000, guid: fe2443101ded6f544b32f8dc8690c367, type: 3}
     hotspot: {x: 0, y: 0}
+  maxNavMeshProjectionDistance: 1
+  maxNavPathLength: 40
 --- !u!114 &7394239224202329837
 MonoBehaviour:
   m_ObjectHideFlags: 0
