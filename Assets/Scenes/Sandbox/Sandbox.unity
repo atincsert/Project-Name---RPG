@@ -11988,7 +11988,7 @@ PrefabInstance:
     - target: {fileID: 2158064922511858114, guid: b3f5d68d2b03215429aff79c7be3c7bc, type: 3}
       propertyPath: defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 0ea50e4342af1af44937f7616da366ec, type: 2}
+      objectReference: {fileID: 11400000, guid: 1514a191c18dd184e924cfaebf655e01, type: 2}
     - target: {fileID: 3672200619977251945, guid: b3f5d68d2b03215429aff79c7be3c7bc, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4

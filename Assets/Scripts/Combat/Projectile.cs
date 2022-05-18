@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Attributes;
+using UnityEngine.Events;
 
 namespace RPG.Combat
 {
@@ -15,15 +16,20 @@ namespace RPG.Combat
         [SerializeField] float maxLifeTime = 10f;
         [SerializeField] GameObject[] destroyOnHit = null;
         [SerializeField] float lifeAfterImpact = 2f;
+        [SerializeField] UnityEvent onProjectileHit;
+        //[SerializeField] UnityEvent onProjectileLaunched;
+        //[SerializeField] UnityEvent onProjectileHit;
 
         private Health target = null;
         private GameObject instigator = null;
         private float damage;
+        private float launchSoundIndex = 0;
+        private float hitSoundIndex = 1;
         
 
         private void Start()
         {
-            transform.LookAt(GetAimLocation());
+            transform.LookAt(GetAimLocation());            
         }
         private void Update()
         {
@@ -63,10 +69,12 @@ namespace RPG.Combat
             target.TakeDamage(instigator, damage);
 
             projectileSpeed = 0f;
+            onProjectileHit.Invoke();
 
             if (hitEffect != null)
             {
                 Instantiate(hitEffect, GetAimLocation(), transform.rotation);
+                //onProjectileHit.Invoke();                
             }
             foreach (GameObject toDestroy in destroyOnHit)
             {
