@@ -34,6 +34,7 @@ namespace RPG.Attributes
         {
             return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
+        
 
         private void Start()
         {
@@ -60,8 +61,6 @@ namespace RPG.Attributes
         }
         public void TakeDamage(GameObject instigator, float damage)
         {
-            //Debug.Log($"{gameObject.name} took {damage} damage");
-
             health.value = Mathf.Max(health.value - damage, 0);
             takeDamage.Invoke(damage);
 
@@ -73,6 +72,11 @@ namespace RPG.Attributes
             }
         }
 
+        public void Heal(float healthToRestore)
+        {
+            health.value = Mathf.Min(health.value + healthToRestore, GetMaxHealth());
+        }
+
         public float GetHealthForDisplay()
         {
             return health.value; 
@@ -81,6 +85,11 @@ namespace RPG.Attributes
         public float GetFraction()
         {
             return health.value / GetComponent<BaseStats>().GetStat(Stat.Health);
+        }
+
+        public float GetMaxHealth()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
         public void Die()
